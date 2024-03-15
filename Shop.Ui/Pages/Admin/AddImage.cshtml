@@ -1,0 +1,44 @@
+﻿@page
+@model Shop.Ui.Pages.Admin.AddImageModel
+@{
+}
+
+   <div class="columns">
+       <div class="column is-6">
+           <form method="post" enctype="multipart/form-data">
+       
+
+            <div class="field">
+                <p class="control">
+                    <label class="label">Product Id</label>
+                    <input class="input" asp-for="img.ProductId" />
+                </p>
+                <span class="help is-danger" asp-validation-for="img.ImageId"></span>
+
+            </div>
+
+            <div class="field">
+                <p class="control">
+                    <label class="label">Insert Image</label>
+                    <input class="input" asp-for="img.FileName" />
+                </p>
+                
+                <div class="field">
+                    <p class="control">
+                        <label class="label">Insert TestId</label>
+                        <input class="input" asp-for="st.TestId" />
+                    </p>
+
+
+                </div>
+
+
+
+            <div class="field">
+                <button class="button is-success" type="submit">Submit</button>
+            </div>
+
+            
+        </form>
+       </div>
+   </div>

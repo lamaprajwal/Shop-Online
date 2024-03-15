@@ -1,0 +1,53 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+
+
+<div class="section">
+    <div class="columns is-multiline">
+        @{
+
+            foreach(var p in Model.Products)
+            {
+
+                <div class="column is-3-desktop is-4-tablet is-6-mobile">
+                    <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    @{var matchingImage = Model.img.FirstOrDefault(i => i.ProductId == p.Id);}
+                                    @if (matchingImage != null)
+                                    {
+                                    var img_path = $"/Image/{matchingImage.FileName}";
+                                    <img src="@img_path" />
+                                    }
+                                    else
+                                    {
+                                    <img src="" />
+                                    }
+                    </figure>
+                </div>
+                <div class="card-content">
+                                    
+                    <p class="title is-size-7">
+                            @p.Name - @p.Value
+                    </p>
+                        <p class="subtitle">
+                            @p.Description
+                        </p>
+                </div>
+            </div>
+            </a>
+            </div>
+                
+            
+            
+            
+            <br />
+        }
+    }
+</div>
+</div>
